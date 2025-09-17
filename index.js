@@ -20,7 +20,7 @@ const serverHandle = function (req, res) {
   console.log(queryParams)
 
   const path = url.parse(req.url).pathname
-  console.log(path)
+  console.log(queryParams)
 
   res.writeHead(200, {'Content-Type': 'text/html'})
   res.write(content)
