@@ -1,6 +1,7 @@
 // Import a module
 const http = require('http')
 const url = require('url')
+const qs = require('querystring')
 
 const content = '<!DOCTYPE html>' +
 '<html>' +
@@ -14,6 +15,9 @@ const content = '<!DOCTYPE html>' +
 '</html>'
 
 const serverHandle = function (req, res) {
+
+  const queryParams = qs.parse(url.parse(req.url).query)
+  console.log(queryParams)
 
   const path = url.parse(req.url).pathname
   console.log(path)
