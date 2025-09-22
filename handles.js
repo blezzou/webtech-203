@@ -5,19 +5,32 @@ const qs = require('querystring')
 
 module.exports = {
   serverHandle: function (req, res) {
-  const route = url.parse(req.url)
-  const path = route.pathname 
-  const params = qs.parse(route.query)
+    const parsedUrl = url.parse(req.url)
+    const path = parsedUrl.pathname
+    const params = qs.parse(parsedUrl.query)
 
-  res.writeHead(200, {'Content-Type': 'text/plain'})
-  const queryParams = qs.parse(url.parse(req.url).query)
-  console.log(queryParams)
+    if (path === '/') {
+      res.writeHead(200, { 'Content-Type': 'text/html' })
+      res.write(`
+        <h1>Bienvenue</h1>
+        <p><a href="/hello?name=Nom">/hello?name=Nom</a></p>
+      `)
+      res.end()
+    }
 
-  if (path === '/hello' && 'name' in params) {
-    res.write('Hello ' + params['name'])
-  } else {
-    res.write('Hello anonymous')
+    else if (path === '/hello') {
+      res.writeHead(200, { 'Content-Type': 'text/plain' })
+
+      if ('name' in params) {
+        if (params.name.toLowerCase() === 'Nico') {
+          res.write("Bonjour, Je suis Nico ")
+        } else {
+          res.write("Hello " + params.name)
+        }
+      } else {
+        res.write("Hello anonymous")
+      }
+      res.end()
+    }
   }
-  res.end()
-  } 
 }
