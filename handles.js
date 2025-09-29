@@ -1,4 +1,3 @@
-// ./handles.js
 // Necessary imports
 const url = require('url')
 const qs = require('querystring')
