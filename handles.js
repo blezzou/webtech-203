@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-=======
-// Necessary imports
-const url = require('url')
-const qs = require('querystring')
->>>>>>> 9f2e7b540ff714a80e9355b75f74afa93fd99a36
 
 const app = express()
 
@@ -26,7 +20,6 @@ app.get('/hello', (req, res) => {
   if (!name) {
     return res.status(400)
   }
-<<<<<<< HEAD
 
   if (name.toLowerCase() === 'nico') {
     return res.send('Bonjour, je suis Nico')
@@ -56,6 +49,3 @@ app.get('/about', (req, res) => {
 })
 
 module.exports = { app }
-=======
-}
->>>>>>> 9f2e7b540ff714a80e9355b75f74afa93fd99a36
