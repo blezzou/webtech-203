@@ -1,36 +1,51 @@
-// ./handles.js
-// Necessary imports
-const url = require('url')
-const qs = require('querystring')
+const fs = require('fs')
+const path = require('path')
+const express = require('express')
 
-module.exports = {
-  serverHandle: function (req, res) {
-    const parsedUrl = url.parse(req.url)
-    const path = parsedUrl.pathname
-    const params = qs.parse(parsedUrl.query)
+const app = express()
 
-    if (path === '/') {
-      res.writeHead(200, { 'Content-Type': 'text/html' })
-      res.write(`
-        <h1>Bienvenue</h1>
-        <p><a href="/hello?name=Nom">/hello?name=Nom</a></p>
-      `)
-      res.end()
-    }
+// Route de base
+app.get('/', (req, res) => {
+  res.status(200).send(`
+    <h1>Bienvenue sur mon API</h1>
+    <p>Essayez <a href="/hello?name=TonNom">/hello?name=TonNom</a></p>
+    <p>Ou <a href="/about">/about</a></p>
+  `)
+})
 
-    else if (path === '/hello') {
-      res.writeHead(200, { 'Content-Type': 'text/plain' })
+// Route hello avec le nom
+app.get('/hello', (req, res) => {
+  const name = req.query.name
 
-      if ('name' in params) {
-        if (params.name.toLowerCase() === 'Nico') {
-          res.write("Bonjour, Je suis Nico ")
-        } else {
-          res.write("Hello " + params.name)
-        }
-      } else {
-        res.write("Hello anonymous")
-      }
-      res.end()
-    }
+  if (!name) {
+    return res.status(400)
   }
-}
+
+  if (name.toLowerCase() === 'nico') {
+    return res.send('Bonjour, je suis Nico')
+  }
+
+  res.send(`Hello ${name}`)
+})
+
+// Route about
+app.get('/about', (req, res) => {
+  const aboutPath = path.join(__dirname, 'content', 'about.json')
+
+  fs.readFile(aboutPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err)
+      return res.status(500).send('Erreur lecture fichier')
+    }
+
+    try {
+      const aboutData = JSON.parse(data)
+      res.json(aboutData)
+    } catch (parseErr) {
+      console.error(parseErr)
+      res.status(500).send('Erreur')
+    }
+  })
+})
+
+module.exports = { app }

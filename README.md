@@ -1,9 +1,10 @@
-# Lab 1 – Getting Started with Node.js & Git
+# Lab module 3 – Web API with Node.js
 
 ## Introduction
 
-This project is a small Node.js web server developed as part of Lab 1 of the "Web Technology" subject.
-It allows you to discover the basics of Node.js, how to create an HTTP server, route management, using Git, and code organization. The project is tagged with `lab1`.
+This project is a small web server developed with Node.js and Express as part of the Web Technology course.
+It introduces how to refactor a Node.js server using Express, manage routes and prepare the project structure for building a REST API.
+The project is tagged with lab2.
 
 ---
 
@@ -23,24 +24,35 @@ git clone https://github.com/blezzou/webtech-203
 
 ---
 
-## Start the server
+## Start the server after being in the right folder
 
 ```bash
-npm run dev
+npm start
 ```
 
 Then open your browser to:
 
 ```
-http://localhost:5050/
+http://localhost:5000/
 ```
 
+You can also try:
+
+```
+http://localhost:5000/hello?name=nico
+```
+Or:
+
+```
+http://localhost:5000/hello?name=YourName
+```
 
 ---
 
 ## Project Structure
 
 ```
+.
 .
 ├── index.js
 ├── handles.js
@@ -49,6 +61,7 @@ http://localhost:5050/
 │   └── about.json
 ├── .gitignore
 └── README.md
+
 ```
 
 ---
