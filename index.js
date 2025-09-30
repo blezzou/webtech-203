@@ -1,7 +1,9 @@
 // Import a module
-const http = require('http')
-const handles = require('./handles')
 
-http
-.createServer(handles.serverHandle)
-.listen(5050)
+const { app } = require('./handles')
+
+const PORT = 5000
+
+app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`)
+})
