@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr">
       <body className="bg-white text-gray-900 font-sans">
         {/* Header global */}
-        <header className="flex justify-between items-center px-8 py-4 shadow-md bg-white sticky top-0 z-50">
+        <header className="flex justify-between items-center px-8 py-4 shadow-md bg-black sticky top-0 z-50">
           <h1 className="text-2xl font-bold text-blue-600">Run Together</h1>
           <nav className="flex space-x-6 text-sm font-medium">
             <Link href="/next-runs" className="hover:text-blue-500">Prochaines courses</Link>
