@@ -6,7 +6,7 @@ export default function Home() {
 
       {/* Section principale */}
       <section className="text-center max-w-2xl">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6">Trouvez votre prochaine course</h2>
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6">Trouvez votre prochain défis</h2>
         <div className="flex justify-center">
           <input
             type="text"
@@ -50,7 +50,7 @@ function RaceSection({ title }: { title: string }) {
       <div className="flex space-x-6 overflow-x-auto pb-4">
         {fakeRaces.map((race, i) => (
           <div key={i} className="min-w-[250px] bg-gray-50 rounded-2xl shadow hover:shadow-lg transition p-4">
-            <div className="relative w-full h-40 mb-3">
+            <div className="text-black relative w-full h-40 mb-3">
               <Image
                 src={race.image}
                 alt={race.name}
@@ -78,7 +78,7 @@ function NewsSection({ title }: { title: string }) {
   return (
     <section className="w-full max-w-6xl mt-8">
       <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-      <div className="grid sm:grid-cols-2 gap-6">
+      <div className="text-black grid sm:grid-cols-2 gap-6">
         {fakeNews.map((news, i) => (
           <div key={i} className="bg-gray-50 p-4 rounded-2xl shadow hover:shadow-md transition">
             <h4 className="font-bold mb-1">{news.title}</h4>
