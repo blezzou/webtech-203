@@ -18,9 +18,9 @@ export default function RootLayout({
         {/* Header global */}
         <header className="flex justify-between items-center px-12 py-5 border-b border-neutral-800 bg-black/80 backdrop-blur-md sticky top-0 z-50">
           {/* Logo */}
-          <h1 className="text-2xl font-extrabold text-blue-500 tracking-tight">
-            RUN TOGETHER
-          </h1>
+          <nav className="text-2xl font-extrabold text-blue-500 tracking-tight">
+            <NavLink href="/">RUN TOGETHER</NavLink>
+          </nav>
 
           {/* Navigation principale */}
           <nav className="flex space-x-10 text-[15px] font-semibold tracking-wide">
