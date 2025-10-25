@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero */}
       <section className="text-center max-w-2xl mt-10">
         <h2 className="text-5xl sm:text-6xl font-extrabold mb-8 text-white tracking-tight">
-          Trouvez votre prochain test
+          Trouvez votre prochain défi
         </h2>
 
         <div className="flex justify-center">
