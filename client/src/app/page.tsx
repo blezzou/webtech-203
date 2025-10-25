@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Aurora from '../components/Aurora';
 
 export default function Home() {
   return (
+    
     <div className="flex flex-col items-center gap-24 px-6 py-12">
       {/* Hero */}
       <section className="text-center max-w-2xl mt-10">
         <h2 className="text-5xl sm:text-6xl font-extrabold mb-8 text-white tracking-tight">
-          Trouvez votre prochain défi
+          Trouvez votre prochain test
         </h2>
 
         <div className="flex justify-center">
