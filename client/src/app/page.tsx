@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { races } from "@/data/data";
 
 export default function Home() {
@@ -52,8 +53,9 @@ function RaceSection({
 
       <div className="flex space-x-6 overflow-x-auto pb-4">
         {races.map((race) => (
-          <div
+          <Link
             key={race.id}
+            href={`/run/${race.id}`}
             className="min-w-[250px] bg-[#1a1a1a] rounded-2xl p-4 shadow-md hover:shadow-lg transition transform hover:-translate-y-1"
           >
             <div className="relative w-full h-40 mb-3 rounded-xl overflow-hidden">
@@ -62,7 +64,7 @@ function RaceSection({
             <h4 className="text-lg font-bold text-white">{race.name}</h4>
             <p className="text-gray-400">{race.distance}</p>
             <p className="text-gray-500 text-sm">{race.date}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
