@@ -8,7 +8,7 @@ async function getRunDetails(id: string) {
   return {
     id: "123",
     name: "Trail de Snowdonia",
-    image: "/images/snowdonia.jpg",
+    image: "/images/paris.jpg",
     description:
       "Un magnifique parcours au cœur du parc national de Snowdonia, entre montagnes et lacs.",
     stats: {

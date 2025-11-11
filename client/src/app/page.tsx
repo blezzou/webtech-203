@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { races } from "@/data/data";
 
 export default function Home() {
+  const popularRaces = races.slice(0, 4);
+  const tenKmRaces = races.filter((r) => r.distance === "10 km");
+  const hardRaces = races.filter((r) => r.difficulty === "Difficile");
+
   return (
     
     <div className="flex flex-col items-center gap-24 px-6 py-12">
@@ -20,9 +25,9 @@ export default function Home() {
       </section>
 
       {/* Sections de courses */}
-      <RaceSection title="Courses populaires" />
-      <RaceSection title="Courses 10 km" />
-      <RaceSection title="Courses difficiles" />
+      <RaceSection title="Courses populaires" races={popularRaces} />
+      <RaceSection title="Courses 10 km" races={tenKmRaces} />
+      <RaceSection title="Courses difficiles" races={hardRaces} />
 
       {/* News */}
       <NewsSection title="Dernières actualités" />
@@ -31,14 +36,13 @@ export default function Home() {
 }
 
 /* Composant de section course */
-function RaceSection({ title }: { title: string }) {
-  const fakeRaces = [
-    { name: "Marathon de Paris", distance: "42 km", date: "14 avril 2025", image: "/images/paris.jpg" },
-    { name: "Trail du Ventoux", distance: "25 km", date: "6 mai 2025", image: "/images/ventoux.jpg" },
-    { name: "Run Lyon", distance: "10 km", date: "20 juin 2025", image: "/images/lyon.jpg" },
-    { name: "Course de Nice", distance: "5 km", date: "10 juillet 2025", image: "/images/nice.jpg" },
-  ];
-
+function RaceSection({
+  title,
+  races,
+}: {
+  title: string;
+  races: typeof import("@/data/data").races;
+}) {
   return (
     <section className="w-full max-w-6xl">
       <div className="flex justify-between items-center mb-4">
@@ -47,9 +51,9 @@ function RaceSection({ title }: { title: string }) {
       </div>
 
       <div className="flex space-x-6 overflow-x-auto pb-4">
-        {fakeRaces.map((race, i) => (
+        {races.map((race) => (
           <div
-            key={i}
+            key={race.id}
             className="min-w-[250px] bg-[#1a1a1a] rounded-2xl p-4 shadow-md hover:shadow-lg transition transform hover:-translate-y-1"
           >
             <div className="relative w-full h-40 mb-3 rounded-xl overflow-hidden">
