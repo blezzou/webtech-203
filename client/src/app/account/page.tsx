@@ -7,8 +7,8 @@ export default function AccountPage() {
 
   if (!user)
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <p className="text-gray-400 text-lg">
+      <div className="flex flex-col items-center">
+        <p className="text-4xl sm:text-5xl font-extrabold mb-10 text-white tracking-tight">
           Vous devez être connecté pour accéder à cette page.
         </p>
         <Link
@@ -21,10 +21,10 @@ export default function AccountPage() {
     );
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-6">
-      <h1 className="text-4xl font-bold text-white mb-6">
-        Bonjour, {user.fullName.split(" ")[0]} 👋
-      </h1>
+    <div className="flex flex-col items-center space-y-6">
+      <h2 className="text-4xl sm:text-5xl font-extrabold mb-10 text-white tracking-tight">
+        Bonjour, {user.fullName.split(" ")[0]}
+      </h2>
 
       <div className="bg-[#1a1a1a] border border-neutral-700 rounded-2xl p-8 text-center w-80 shadow-lg">
         <p className="text-gray-300 mb-4">

@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { UserProvider } from "@/context/UserContext";
 
 export const metadata: Metadata = {
   title: "Run Together",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className="bg-[#0a0a0a] text-gray-100 font-sans">
         {/* Header global */}
+        <UserProvider>
         <header className="flex justify-between items-center px-12 py-5 border-b border-neutral-800 bg-black/80 backdrop-blur-md sticky top-0 z-50">
           {/* Logo */}
           <nav className="text-2xl font-extrabold text-blue-500 tracking-tight">
@@ -41,6 +43,7 @@ export default function RootLayout({
 
         {/* Contenu principal */}
         <main className="pt-16">{children}</main>
+        </UserProvider>
       </body>
     </html>
   );
