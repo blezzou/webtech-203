@@ -41,6 +41,15 @@ export const users: User[] = [
     completedRuns: ["1"],
     upcomingRuns: ["2"],
   },
+ {
+    id: "2",
+    fullName: "Marie Curie",
+    email: "marie@example.com",
+    password: "123456",
+    role: "organizer",
+    completedRuns: [],
+    upcomingRuns: [],
+ },
 ];
 
 export const runs: Run[] = [
