@@ -1,39 +1,35 @@
 "use client"
-import Image from "next/image";
 import { useState } from "react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import { races } from "@/data/data";
 
-// Simulation d’une fonction de récupération
-async function getRunDetails(id: string) {
-  // fetch ou appel à une base
-  return {
-    id: "123",
-    name: "Trail de Snowdonia",
-    image: "/images/paris.jpg",
-    description:
-      "Un magnifique parcours au cœur du parc national de Snowdonia, entre montagnes et lacs.",
-    stats: {
-      distance: "18 km",
-      duration: "2h45",
-      type: "Trail",
-      location: "Pays de Galles",
+
+
+export default function RunPage() {
+  const { id } = useParams();
+  const run = races.find((r) => r.id === id);
+
+  if (!run) {
+    return (
+      <main className="min-h-screen flex items-center justify-center text-gray-400">
+        <p>Course introuvable.</p>
+      </main>
+    );
+  }
+
+  const friends = [
+    {
+      name: "Lucas",
+      comment: "Superbe paysage, montée un peu dure mais ça vaut le coup !",
+      likes: 3,
     },
-    friends: [
-      {
-        name: "Lucas",
-        comment: "Superbe paysage, montée un peu dure mais ça vaut le coup !",
-        likes: 3,
-      },
-      {
-        name: "Emma",
-        comment: "Je l’ai refaite 2 fois déjà 😍",
-        likes: 5,
-      },
-    ],
-  };
-}
-
-export default async function Run({ params }: { params: { id: string } }) {
-  const run = await getRunDetails(params.id);
+    {
+      name: "Emma",
+      comment: "Je l’ai refaite 2 fois déjà 😍",
+      likes: 5,
+    },
+  ];
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-gray-200 px-6 py-12 flex flex-col items-center">
@@ -57,15 +53,10 @@ export default async function Run({ params }: { params: { id: string } }) {
 
       {/* Statistiques */}
       <section className="flex flex-wrap justify-center gap-6 mb-16">
-        {Object.entries(run.stats).map(([key, value]) => (
-          <div
-            key={key}
-            className="bg-[#1a1a1a] px-6 py-4 rounded-xl border border-neutral-800 shadow-md text-center"
-          >
-            <p className="text-gray-400 uppercase text-sm">{key}</p>
-            <p className="text-xl font-semibold text-white">{value}</p>
-          </div>
-        ))}
+        <Stat label="Distance" value={run.distance} />
+        <Stat label="Lieu" value={run.city} />
+        <Stat label="Difficulté" value={run.difficulty} />
+        <Stat label="Date" value={run.date} />
       </section>
 
       {/* Google Maps placeholder */}
@@ -74,14 +65,16 @@ export default async function Run({ params }: { params: { id: string } }) {
         <div className="rounded-xl overflow-hidden border border-neutral-800 shadow-lg h-96 bg-[#111] flex items-center justify-center text-gray-500">
           Google Maps API à intégrer
         </div>
-
       </section>
+
       {/* Section amis */}
       <section className="w-full max-w-3xl">
-        <h2 className="text-3xl font-bold mb-6 text-white">Vos amis sur cette course</h2>
+        <h2 className="text-3xl font-bold mb-6 text-white">
+          Vos amis sur cette course
+        </h2>
         <div className="space-y-6">
-          {run.friends.map((friend, i) => (
-            <FriendComment key={i} {...friend} />
+          {friends.map((f, i) => (
+            <FriendComment key={i} {...f} />
           ))}
         </div>
       </section>
@@ -89,7 +82,15 @@ export default async function Run({ params }: { params: { id: string } }) {
   );
 }
 
-// Sous-composant pour les commentaires amis
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-[#1a1a1a] px-6 py-4 rounded-xl border border-neutral-800 shadow-md text-center">
+      <p className="text-gray-400 uppercase text-sm">{label}</p>
+      <p className="text-xl font-semibold text-white">{value}</p>
+    </div>
+  );
+}
+
 function FriendComment({
   name,
   comment,
@@ -103,7 +104,7 @@ function FriendComment({
   const [liked, setLiked] = useState(false);
 
   const handleLike = () => {
-    setLikeCount(liked ? likeCount - 1 : likeCount + 1);
+    setLikeCount((prev) => (liked ? prev - 1 : prev + 1));
     setLiked(!liked);
   };
 
