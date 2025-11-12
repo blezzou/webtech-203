@@ -28,6 +28,7 @@ export interface Races {
     difficulty: "Facile" | "Moyenne" | "Difficile";
     image: string;
     description: string;
+    capacity: number;
 }
 
 
@@ -85,6 +86,7 @@ export const races: Races[] = [
         difficulty: "Difficile",
         image: "/images/paris.jpg",
         description: "Le Marathon de Paris est l'un des marathons les plus célèbres au monde, attirant des coureurs de tous niveaux pour une course à travers les rues emblématiques de la ville.",
+        capacity: 50000,
     },
     {
         id: "2",
@@ -95,7 +97,7 @@ export const races: Races[] = [
         difficulty: "Moyenne",
         image: "/images/ventoux.jpg",
         description: "Le Trail du Ventoux offre une expérience de course unique avec des paysages spectaculaires et des défis variés, parfait pour les amateurs de trail.",
-
+        capacity: 2000,
     },
     {
         id: "3",
@@ -106,6 +108,7 @@ export const races: Races[] = [
         difficulty: "Facile",
         image: "/images/lyon.jpg",
         description: "La Run Lyon est une course urbaine conviviale qui traverse les quartiers historiques de Lyon, idéale pour les coureurs de tous niveaux.",
+        capacity: 10000,
     },
     {
         id: "4",
@@ -116,6 +119,7 @@ export const races: Races[] = [
         difficulty: "Facile",
         image: "/images/nice.jpg",
         description: "La Course de Nice est une course rapide et plate le long de la magnifique Promenade des Anglais, parfaite pour les débutants et les coureurs cherchant à améliorer leur temps.",
+        capacity: 8000,
     },
     {
         id: "5",
@@ -126,6 +130,7 @@ export const races: Races[] = [
         difficulty: "Difficile",
         image: "/images/backyard-marseille.jpg",
         description: "La Backyard Ultra de Marseille est une course d'endurance extrême où les coureurs doivent parcourir une boucle de 6,7 km chaque heure jusqu'à ce qu'il n'en reste plus qu'un.",
+        capacity: 140,
     },
     {
         id: "6",
@@ -136,6 +141,7 @@ export const races: Races[] = [
         difficulty: "Moyenne",
         image: "/images/bordeaux.jpg",
         description: "Le Semi-Marathon de Bordeaux est une course populaire qui offre un parcours pittoresque à travers les vignobles et les quais de la ville.",
+        capacity: 1200,
     }
 ];
 
