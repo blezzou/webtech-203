@@ -117,5 +117,25 @@ export const races: Races[] = [
         image: "/images/nice.jpg",
         description: "La Course de Nice est une course rapide et plate le long de la magnifique Promenade des Anglais, parfaite pour les débutants et les coureurs cherchant à améliorer leur temps.",
     },
+    {
+        id: "5",
+        name: "Backyard Ultra Marseille",
+        distance: "180 km",
+        date: "15 août 2025",
+        city: "Marseille",
+        difficulty: "Difficile",
+        image: "/images/backyard-marseille.jpg",
+        description: "La Backyard Ultra de Marseille est une course d'endurance extrême où les coureurs doivent parcourir une boucle de 6,7 km chaque heure jusqu'à ce qu'il n'en reste plus qu'un.",
+    }
+    {
+        id: "6",
+        name: "Semi-Marathon de Bordeaux",
+        distance: "21 km",
+        date: "5 septembre 2025",
+        city: "Bordeaux",
+        difficulty: "Moyenne",
+        image: "/images/bordeaux.jpg",
+        description: "Le Semi-Marathon de Bordeaux est une course populaire qui offre un parcours pittoresque à travers les vignobles et les quais de la ville.",
+    }
 ];
 
