@@ -126,7 +126,7 @@ export const races: Races[] = [
         difficulty: "Difficile",
         image: "/images/backyard-marseille.jpg",
         description: "La Backyard Ultra de Marseille est une course d'endurance extrême où les coureurs doivent parcourir une boucle de 6,7 km chaque heure jusqu'à ce qu'il n'en reste plus qu'un.",
-    }
+    },
     {
         id: "6",
         name: "Semi-Marathon de Bordeaux",
