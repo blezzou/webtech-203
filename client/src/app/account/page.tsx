@@ -43,6 +43,23 @@ export default function AccountPage() {
           Se déconnecter
         </button>
       </div>
+      {/* section avec bouton pour permettre à l'organisateur d'acceder aux page myruns et addrun */}
+      {(user.role === "admin" || user.role === "organizer") && (
+        <div className="flex flex-col space-y-4 mt-6">
+          <Link
+            href="/myruns"
+            className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-2xl text-white font-semibold"
+          >
+            Voir mes courses publiées
+          </Link>
+          <Link
+            href="/addrun"
+            className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg text-2xl text-white font-semibold"
+          >
+            Ajouter une nouvelle course
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

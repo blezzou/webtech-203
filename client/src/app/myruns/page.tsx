@@ -1,7 +1,27 @@
+"use client";
+import { useUser } from "@/context/UserContext";
+import Link from "next/link";
 import { races } from "@/data/data";
 
 export default function MyRuns({ currentUser }: { currentUser: any }) {
-  const myRaces = races.filter((r) => r.creatorId === currentUser.id);
+  const { user, logout } = useUser();
+
+  if (!user)
+    return (
+      <div className="flex flex-col items-center">
+        <p className="text-4xl sm:text-5xl font-extrabold mb-10 text-white tracking-tight">
+          Vous devez être connecté pour accéder à cette page.
+        </p>
+        <Link
+          href="/login"
+          className="mt-6 px-8 py-3 font-semibold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+        >
+          Se connecter
+        </Link>
+      </div>
+    );
+
+  const myRaces = races.filter((r) => r.creatorId === user.id);
 
   return (
     <div className="max-w-4xl mx-auto mt-10">
