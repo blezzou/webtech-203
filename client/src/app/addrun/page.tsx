@@ -4,11 +4,12 @@ import { useRouter } from "next/navigation";
 
 export default function AddRunPage({ currentUser }: { currentUser: any }) {
   const router = useRouter();
-
-  // Vérification des droits
+  
+  /*
   if (!currentUser || (currentUser.role !== "admin" && currentUser.role !== "organizer")) {
     return <p className="text-center text-red-500 mt-20">Accès refusé</p>;
   }
+  */
 
   const [form, setForm] = useState({
     name: "",
@@ -30,7 +31,7 @@ export default function AddRunPage({ currentUser }: { currentUser: any }) {
         creatorId: currentUser.id,
       }),
     });
-    router.push("/myruns"); // renvoie vers la liste de ses courses
+    router.push("/myruns");
   };
 
   return (
