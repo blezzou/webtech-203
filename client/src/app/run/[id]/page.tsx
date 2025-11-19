@@ -67,6 +67,16 @@ export default function RunPage() {
         </div>
       </section>
 
+      {/* Boutton s'incrire */}
+      <button
+        onClick={() => alert("Inscription effectuée !")} // A modif par insersion logique d'inscription
+        className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg text-2xl text-white font-semibold"
+        >
+        S'inscrire à cette course
+      </button>
+
+      <section className="my-16 w-full border-t border-neutral-800"></section>
+
       {/* Section amis */}
       <section className="w-full max-w-3xl">
         <h2 className="text-3xl font-bold mb-6 text-white">
