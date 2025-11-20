@@ -8,17 +8,6 @@ export interface User {
   upcomingRuns: string[];
 }
 
-export interface Run {
-  id: string;
-  name: string;
-  image: string;
-  description: string;
-  distance: number;
-  duration: string;
-  location: string;
-  type: string;
-}
-
 export interface Races {
     id: string;
     name: string;
@@ -41,6 +30,14 @@ export interface completedRuns {
     date: string;
 }
 
+export interface Comments {
+    id: string;
+    runId: string;
+    userId: string;
+    comment: string;
+    likes: number;
+}
+
 export const users: User[] = [
   {
     id: "1",
@@ -60,29 +57,6 @@ export const users: User[] = [
     completedRuns: [],
     upcomingRuns: [],
  },
-];
-
-export const runs: Run[] = [
-  {
-    id: "1",
-    name: "Marathon de Paris",
-    image: "/images/paris-marathon.jpg",
-    description: "Un parcours mythique à travers la capitale française.",
-    distance: 42.195,
-    duration: "4h30",
-    location: "Paris, France",
-    type: "Marathon",
-  },
-  {
-    id: "2",
-    name: "Trail du Mont-Blanc",
-    image: "/images/montblanc-trail.jpg",
-    description: "Une aventure en montagne avec des vues à couper le souffle.",
-    distance: 23.5,
-    duration: "3h10",
-    location: "Chamonix, France",
-    type: "Trail",
-  },
 ];
 
 export const races: Races[] = [
