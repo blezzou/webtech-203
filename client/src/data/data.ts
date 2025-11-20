@@ -33,6 +33,13 @@ export interface Races {
     participants: string[];
 }
 
+export interface completedRuns {
+    id: string;
+    raceId: string;
+    userId: string;
+    time: string;
+    date: string;
+}
 
 export const users: User[] = [
   {
@@ -159,3 +166,19 @@ export const races: Races[] = [
     }
 ];
 
+export const completedRuns: completedRuns[] = [
+    {
+        id: "1",
+        raceId: "1",
+        userId: "1",
+        time: "4h25m30s",
+        date: "14 avril 2024",
+    },
+    {
+        id: "2",
+        raceId: "2",
+        userId: "1",
+        time: "3h05m15s",
+        date: "6 mai 2024",
+    },
+];
