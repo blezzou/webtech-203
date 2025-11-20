@@ -3,10 +3,33 @@
 import Image from "next/image";
 import { completedRuns } from "@/data/data";
 import { races } from "@/data/data";
+import { useUser } from "@/context/UserContext";
 
 export default function CompletedRunsPage() {
-  const userId = 1;
-  const userRuns = completedRuns.filter((run) => run.userId === String(userId));
+  const { user } = useUser();
+
+  if (!user) {
+    return (
+      <div className="px-6 py-20 text-center">
+        <h1 className="text-3xl font-bold text-white mb-4">
+          Vous devez être connecté
+        </h1>
+        <p className="text-gray-400 mb-6">
+          Connectez-vous pour voir vos courses complétées.
+        </p>
+        <a
+          href="/login"
+          className="inline-block bg-blue-600 px-6 py-3 rounded-xl text-white font-semibold hover:bg-blue-700 transition"
+        >
+          Se connecter
+        </a>
+      </div>
+    );
+  }
+
+  const userRuns = completedRuns.filter(
+    (run) => run.userId === user.id
+  );
 
   const runsWithInfo = userRuns.map((run) => {
     const race = races.find((r) => r.id === run.raceId);
