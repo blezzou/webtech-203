@@ -31,6 +31,7 @@ export default function RunPage() {
     },
   ];
 
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-gray-200 px-6 py-12 flex flex-col items-center">
       {/* Nom + Image */}
@@ -77,8 +78,21 @@ export default function RunPage() {
 
       <section className="my-16 w-full border-t border-neutral-800"></section>
 
+    <div className="flex items-center space-x-2">
+      <input
+        type="text"
+        placeholder="Ajouter un commentaire..."
+        className="bg-[#2a2a2a] text-gray-300 rounded-full py-2 px-4 w-full max-w-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-full font-semibold transition"
+      >
+        Envoyer
+      </button>
+    </div>
+
       {/* Section amis */}
-      <section className="w-full max-w-3xl">
+      <section className="w-full max-w-3xl py-10">
         <h2 className="text-3xl font-bold mb-6 text-white">
           Vos amis sur cette course
         </h2>
