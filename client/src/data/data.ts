@@ -181,4 +181,11 @@ export const completedRuns: completedRuns[] = [
         time: "3h05m15s",
         date: "6 mai 2024",
     },
+    {
+        id: "3",
+        raceId: "3",
+        userId: "1",
+        time: "1h45m50s",
+        date: "20 juin 2024",
+    }
 ];
