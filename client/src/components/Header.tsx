@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useUser } from "@/context/UserContext";
+import SearchBar from "@/components/SearchBar";
 
 function NavLink({
   href,
@@ -30,14 +31,22 @@ export default function Header() {
         <NavLink href="/">RUN TOGETHER</NavLink>
       </nav>
 
-      {/* Navigation principale */}
-      <nav className="flex space-x-10 text-[15px] font-semibold tracking-wide">
-        <NavLink href="/next-runs">Prochaines courses</NavLink>
-        <NavLink href="/completed-runs">Courses complétées</NavLink>
-        <NavLink href="/about">À propos</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
-      </nav>
+      {/* Navigation principale + Search */}
+      <div className="flex items-center space-x-10">
+        {/* Navigation */}
+        <nav className="flex space-x-10 text-[15px] font-semibold tracking-wide">
+          <NavLink href="/next-runs">Prochaines courses</NavLink>
+          <NavLink href="/completed-runs">Courses complétées</NavLink>
+          <NavLink href="/about">À propos</NavLink>
+          <NavLink href="/contact">Contact</NavLink>
+        </nav>
 
+        {/* 🔍 SearchBar */}
+        
+      </div>
+      <div className="w-64">
+          <SearchBar />
+        </div>
       {/* Espace utilisateur */}
       <div>
         {user ? (
