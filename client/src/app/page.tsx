@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { races } from "@/data/data";
 
 export default function Home() {
+
   const popularRaces = races.slice(0, 4);
   const tenKmRaces = races.filter((r) => r.distance === "10 km");
   const hardRaces = races.filter((r) => r.difficulty === "Difficile");
