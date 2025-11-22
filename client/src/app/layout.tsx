@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { UserProvider } from "@/context/UserContext";
 import Header from "@/components/Header";
 
+
 export const metadata: Metadata = {
   title: "Run Together",
   description: "Trouvez et partagez vos courses à pied",
