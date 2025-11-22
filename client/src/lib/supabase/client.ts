@@ -7,10 +7,4 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Supabase URL ou clé anonyme manquante dans .env.local')
 }
 
-/**
- * @brief Client Supabase côté client (navigateur)
- * @description Permet d'effectuer les opérations d'authentification et de base de données
- * depuis React avec les clés publiques.
- */
-
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
